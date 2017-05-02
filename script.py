@@ -13,7 +13,7 @@ response.close()
 
 # find image url, download and save locally
 imageurl = baseurl + \
-    search('<IMG SRC="(.*)"\n|<img src="(.*)"\n', html).group(1)
+    search('<a href="(.*\.jpg)"', html).group(1)
 image = urllib.request.urlopen(imageurl)
 
 with open(image_path, 'wb') as localFile:
